@@ -1,0 +1,4 @@
+$('#cart').html("<%= escape_javascript render(@cart) %>");
+if ($('#cart').children('table').children('tbody').children('tr').length < 2) {
+	$('#cart').css("display","none");
+}
