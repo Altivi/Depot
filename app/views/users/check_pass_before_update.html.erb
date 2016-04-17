@@ -1,0 +1,29 @@
+<div class="depot_form">
+  <%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %>
+      , сведения об этом пользователе не могут быть сохранены:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <fieldset>
+      <legend>Введите пароль</legend>
+      <div class="field">
+        <%= f.label :password, 'Пароль:' %>:
+        <%= f.password_field :password, size: 40 %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, 'Подтверждение:' %>:
+        <%= f.password_field :password_confirmation, size: 40 %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </fieldset>
+    <% end %>
+  </div>

@@ -21,4 +21,9 @@ class OrderNotifier < ApplicationMailer
 
     mail to: order.email, subject: 'Заказ из Pragmatic Store отправлен'
   end
+
+  def error_occured(error)
+    @error = error
+    mail to: "altivi.prog@gmail.com", subject: 'Depot App Error Incident'
+  end
 end

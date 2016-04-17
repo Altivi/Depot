@@ -11,4 +11,12 @@ class OrderNotifierPreview < ActionMailer::Preview
     OrderNotifier.shipped
   end
 
+  def error_occured
+  	error = Object.new
+  	def error.message
+		"hello bitch"
+	end
+  	OrderNotifier.error_occured(error)
+  end
+
 end
