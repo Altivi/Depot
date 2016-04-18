@@ -1,22 +1,23 @@
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
+      <h2><%=raw t('errors.template.header', count: @order.errors.count,
+        model: t('activerecord.models.order')) %>.</h2>
+      <p><%= t('errors.template.body') %></p>
       <ul>
       <% @order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li><%=raw msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, t('.name') %><br>
     <%= f.text_field :name, size: 40 %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
+    <%= f.label :address, t('.address_html') %><br>
     <%= f.text_area :address, rows: 3, cols: 40 %>
   </div>
   <div class="field">
@@ -24,10 +25,14 @@
     <%= f.text_field :email, size: 40 %>
   </div>
   <div class="field">
-    <%= f.label :payment_type_id %><br>
-    <%= collection_select( :order, :payment_type_id, PaymentType.all, :id, :name, prompt: true ) %>
+    <%= f.label :payment_type_id, t('.payment_type_id') %><br>
+    <% if I18n.locale.to_s == "en" %>
+      <%= collection_select( :order, :payment_type_id, PaymentType.all, :id, :name, prompt: t('.pay_prompt_html') ) %>
+    <% else %>
+       <%= collection_select( :order, :payment_type_id, PaymentType.all, :id, "#{I18n.locale.to_s}_name".to_sym, prompt: t('.pay_prompt_html') ) %>
+    <% end %>
   </div>
   <div class="actions">
-    <%= f.submit 'Place Order' %>
+    <%= f.submit t('.submit') %>
   </div>
 <% end %>

@@ -7,6 +7,6 @@
 <!-- END_HIGHLIGHT -->
   <td><%= line_item.quantity %>&times;</td>
   <td><%= line_item.product.title %></td>
-  <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+  <td class="item_price"><%= currency_to_locale(line_item.total_price) %></td>
   <td><%= button_to 'Delete', decrement_line_item_url(line_item), method: :put, remote: true, disabled: !@order.nil?  %></td>
 </tr>

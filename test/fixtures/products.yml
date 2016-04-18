@@ -5,12 +5,14 @@ one:
   description: MyText
   image_url: MyString
   price: 9.99
+  locale: en
 
 two:
   title: MyString
   description: MyText
   image_url: MyString
   price: 9.99
+  locale: en
 
 ruby:
   title: Programming Ruby 1.9
@@ -20,6 +22,7 @@ ruby:
     delivered fast, you should add Ruby to your toolbox.
   price: 49.50
   image_url: ruby.png
+  locale: en
 
 rtp:
   title: Rails Test Prescriptions
@@ -31,3 +34,4 @@ rtp:
     add-ons, including Cucumber, Shoulda, Machinist, Mocha, and Rcov.
   price: 34.95
   image_url: rtp.png
+  locale: en

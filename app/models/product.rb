@@ -21,6 +21,10 @@ class Product < ActiveRecord::Base
 		Product.order(:updated_at).last
 	end
 
+	def self.current_locale_products
+		Product.where(locale: I18n.locale.to_s)
+	end
+
 	private
 
 	def ensure_not_referenced_by_any_line_item

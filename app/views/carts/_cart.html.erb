@@ -1,11 +1,11 @@
-<h2>Your Cart</h2>
+<h2><%= t('.title') %></h2>
 <table>
 	<%= render cart.line_items %>
 	<tr class="total_line">
 		<td colspan="2">Total</td>
-		<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+		<td class="total_cell"><%= currency_to_locale(cart.total_price) %></td>
 	</tr>
 </table>
 
-<%= button_to "Checkout", new_order_path, method: :get, disabled: !@order.nil? %>
-<%= button_to 'Empty cart', cart, method: :delete, remote: true, disabled: !@order.nil?, data: { confirm: 'Are you sure?' } %>
+<%= button_to t('.checkout'), new_order_path, method: :get, disabled: !@order.nil? %>
+<%= button_to t('.empty'), cart, method: :delete, remote: true, disabled: !@order.nil?, data: { confirm: 'Are you sure?' } %>

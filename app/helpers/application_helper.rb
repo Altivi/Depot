@@ -16,4 +16,9 @@ module ApplicationHelper
 		content_tag("div", attributes, &block)
 	end
 
+	def currency_to_locale(price)
+		price = price / 1.13 if 'es' == I18n.locale.to_s
+		number_to_currency price
+	end
+
 end
