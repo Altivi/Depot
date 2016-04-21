@@ -69,6 +69,10 @@ es:
       checkout:    "Comprar"
 #END:cart
 
+  line_items:
+    line_item:
+      delete:     "Borrar"
+
 #START:main
   store:
     index:

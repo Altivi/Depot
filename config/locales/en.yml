@@ -48,6 +48,10 @@ en:
       checkout:    "Checkout"
 #END:cart
 
+  line_items:
+    line_item:
+      delete:     "Delete"
+
 #START:main
   store:
     index:
