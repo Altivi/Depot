@@ -47,7 +47,6 @@ namespace :deploy do
   end
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
-  after 'deploy:create_symlink', 'copy_database_yml'
 end
 
 namespace :deploy do
