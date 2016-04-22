@@ -51,14 +51,6 @@ namespace :deploy do
 end
 
 namespace :deploy do
-  after "deploy:update_code","deploy:config_symlink"
-  desc "copy shared/database.yml to current/config/database.yml"
-  task :copy_database_yml do
-	 run "cp #{shared_path}/database.yml #{current_path}/config/database.yml"
-  end
-end
-
-namespace :deploy do
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
