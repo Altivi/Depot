@@ -48,6 +48,9 @@ namespace :deploy do
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
   after 'deploy:create_symlink', 'copy_database_yml'
+end
+
+namespace :deploy do
   desc "copy shared/database.yml to current/config/database.yml"
   task :copy_database_yml do
 	 run "cp #{shared_path}/database.yml #{current_path}/config/database.yml"
